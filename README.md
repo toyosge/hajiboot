@@ -2,7 +2,7 @@
 Training of "Spring Boot"
 
 # Resource
-https://blog.ik.am/entries/295
+https://blog.ik.am/entries/295<br>
 https://github.com/making/hajiboot-samples
 
 # Don't forget
