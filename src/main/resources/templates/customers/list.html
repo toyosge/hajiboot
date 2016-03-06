@@ -5,11 +5,28 @@
     <title>顧客一覧</title>
 </head>
 <body>
+<form action="@{/customers/create}" th:object="${customerForm}" method="post">
+    <dl>
+        <dt><label>姓</label></dt>
+        <dd>
+            <input type="text" th:field="*{lastName}"/>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error-messages">error!</span>
+        </dd>
+        <dt><label>名</label></dt>
+        <dd>
+            <input type="text" th:field="*{firstName}"/>
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                  class="error-messages">error!</span>
+        </dd>
+    </dl>
+    <input type="submit" value="作成"/>
+</form>
+<hr/>
 <table>
     <tr th:each="customer : ${customers}">
-        <td th:text="${customer.id}">001</td>
-        <td th:text="${customer.lastName}">001</td>
-        <td th:text="${customer.firstName}">001</td>
+        <td th:text="${customer.id}">100</td>
+        <td th:text="${customer.lastName}">山田</td>
+        <td th:text="${customer.firstName}">太郎</td>
         <td>
             <form action="@{customers/edit}" method="get">
                 <input type="submit" name="form" value="編集"/>
