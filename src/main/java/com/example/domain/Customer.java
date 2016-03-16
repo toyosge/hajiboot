@@ -6,21 +6,18 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-/**
- * Created by masahirayamamoto on 2/27/16.
- */
-@Entity
-@Table(name = "customers")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(nullable = false)
     private String firstName;
-    @Column(nullable = false)
     private String lastName;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "username")
+    private User user;
 }
